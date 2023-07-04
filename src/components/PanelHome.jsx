@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { ChartLine } from './ChartLine';
 
 export const PanelHome = () => {
   const [reservas, setReservas] = useState([]);
@@ -23,7 +24,7 @@ export const PanelHome = () => {
   const obtenerTareas = () => {
     axios.get('http://localhost:3000/tareas')
       .then(response => {
-        setTareas(response.data.slice(0, 2)); // Mostrar solo las primeras 2 tareas
+        setTareas(response.data.slice(0, 3)); // Mostrar solo las primeras 2 tareas
         console.log(response.data)
       })
       .catch(error => {
@@ -68,7 +69,7 @@ const obtenerBungalowFechaMasCercana = (reservas) => {
 
   return (
     <div className="wrapper">
-      <div className="box a d-flex align-items-center justify-content-center">Tienes {reservas.length} reservas activas.</div>
+      <div className="box a d-flex align-items-center justify-content-center">Hay {reservas.length} reservas confirmadas.</div>
       <div className="box b">
         <h2 className='text-center'>Lista de Tareas</h2>
         <ul>
@@ -82,7 +83,11 @@ const obtenerBungalowFechaMasCercana = (reservas) => {
           ))}
         </ul>
       </div>
-      <div className="box c text-center "><h2>Reserva más cercana: </h2> <br/> <p className='d-flex align-items-center justify-content-center'>{bungalowFechaMasCercana}</p></div>
+      <div className="box c">
+          <div id="chart-container">
+            <ChartLine />
+          </div>
+        </div>
     </div>
   );
 };

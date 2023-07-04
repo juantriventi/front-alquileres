@@ -99,7 +99,7 @@ function formatearFecha(fecha) {
   }
 
   return (
-    <div>
+    <div className='container-reservas'>
      
 
       <table className='tabla-reservas border rounded p-5'>
@@ -186,7 +186,7 @@ function formatearFecha(fecha) {
               </label>
             </td>
             <td>
-              <button className="btn btn-primary" onClick={handleSubmit}>Agregar</button>
+              <button className="btn btn-success" onClick={handleSubmit}>Agregar</button>
             </td>
           </tr>
         </tbody>

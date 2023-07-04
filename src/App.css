@@ -36,36 +36,114 @@ button{
   padding: 6px;
 }
 
-
+.navbarbg{
+  background-color: #84A98C;
+}
+#basic-nav-dropdown{
+  color: #fff;
+}
 .wrapper {
   display: grid;
   grid-gap: 10px;
   background-color: #fff;
   color: #444;
+  margin-top: 3vh;
 }
 
 .box {
-  background-color: #444;
+  background-color: #84A98C;
   color: #fff;
   border-radius: 5px;
   padding: 20px;
   font-size: 150%;
-  margin-top: 5vh;
 }
-
+#boton-crear-tarea{
+  background-color: #84A98C;
+  color: #fff;
+}
 .a {
   grid-column: 1 / span 2;
-  height: 150px;
+  height: 100px;
 }
 .b {
   grid-column: 3 ;
   grid-row: 1 / span 2;
+  max-height: 500px;
+  overflow-y: scroll;
+  scroll-behavior: auto;
 }
 .c {
   grid-column: 1 / span 2;
-  height: 250px;
-  margin-top: 0px;
+  height: 390px;
+  margin-top: -5px;
+}
+
+/*CHART*/
+#chart-container{
+  display: flex;
+  justify-content: left;
+  margin: auto;
+  height: 350px;
 }
 
 
+.reservas-body{
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+.container-reservas{
+  max-height: 500px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+.svg-background{
+  z-index: -1;
+  position: absolute;
+  bottom: 0;
+}
 
+@media only screen and (max-width: 1200px) {
+
+  .wrapper {
+    display: block;
+    justify-content: center;
+    margin: auto;
+    background-color: #fff;
+    color: #444;
+  }
+  .a {
+    height: 100px;
+    margin-top: 10px;
+  }
+  .b {
+    height: 400px;
+    margin-top: 10px;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+  .c {
+    height: 320px;
+    margin-top: 20px;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .wrapper{
+    margin-top: 10vh;
+  }
+  .a {
+    grid-column: 1 / span 2;
+    height: 150px;
+  }
+  .b {
+    grid-column: 3 ;
+    grid-row: 1 / span 2;
+    max-height: 550px;
+    overflow-y: scroll;
+    scroll-behavior: auto;
+  }
+  .c {
+    grid-column: 1 / span 2;
+    height: 390px;
+    margin-top: -5px;
+  }
+}

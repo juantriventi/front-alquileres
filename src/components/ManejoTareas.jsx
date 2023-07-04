@@ -80,6 +80,7 @@ export const ManejoTareas = () => {
           <input
             type="text"
             className="form-control"
+            placeholder='Bungalow'
             name="bungalow"
             value={nuevaTarea.bungalow}
             onChange={handleInputChange}
@@ -90,6 +91,7 @@ export const ManejoTareas = () => {
           <input
             type="text"
             className="form-control"
+            placeholder='Persona que la completara'
             name="persona"
             value={nuevaTarea.persona}
             onChange={handleInputChange}
@@ -109,13 +111,14 @@ export const ManejoTareas = () => {
           <label className="form-label">Descripción:</label>
           <textarea
             className="form-control"
+            placeholder='Descripcion de la tarea'
             name="descripcion"
             value={nuevaTarea.descripcion}
             onChange={handleInputChange}
           />
         </div>
         <div className="d-flex justify-content-center">
-          <button type="submit" className="btn btn-primary">Crear Tarea</button>
+          <button type="submit" className="btn" id='boton-crear-tarea'>Crear Tarea</button>
         </div>      
       </form>
       <h1 className='display-5 mt-5 mb-5'>Lista de Tareas</h1>
@@ -125,8 +128,8 @@ export const ManejoTareas = () => {
       <div className="card mb-3">
         <div className="card-body d-flex flex-column">
           <h5 className="card-title text-center">Bungalow: {tarea.bungalow}</h5>
-          <h6 className="card-subtitle mb-2 text-muted">Persona: {tarea.persona}</h6>
-          <p className="card-text">Fecha: {formatearFecha(tarea.fecha)}</p>
+          <h6 className="card-subtitle mb-2 mt-2 text-muted">Persona: {tarea.persona}</h6>
+          <p className="card-text mt-2">Fecha: {formatearFecha(tarea.fecha)}</p>
           <p className="card-text">Descripción: {tarea.descripcion}</p>
           <div className="d-flex justify-content-center align-items-center">
             <button className="btn btn-danger" onClick={() => eliminarTarea(tarea._id)}>Eliminar</button>

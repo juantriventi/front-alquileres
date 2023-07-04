@@ -1,7 +1,10 @@
 import NavBar from "../components/NavBar"
 import { PanelHome } from "../components/PanelHome";
 
+
+
 function Home () {
+
     return (
         <>
         <NavBar />
@@ -9,6 +12,7 @@ function Home () {
             
         <PanelHome />
 
+               
         </div>
         </>
     );
