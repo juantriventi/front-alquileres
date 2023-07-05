@@ -87,16 +87,20 @@ export const ManejoTareas = () => {
           />
         </div>
         <div className="mb-3">
-          <label className="form-label">Persona:</label>
-          <input
-            type="text"
-            className="form-control"
-            placeholder='Persona que la completara'
-            name="persona"
-            value={nuevaTarea.persona}
-            onChange={handleInputChange}
-          />
-        </div>
+  <label className="form-label">Persona:</label>
+  <select
+    className="form-control"
+    name="persona"
+    value={nuevaTarea.persona}
+    onChange={handleInputChange}
+  >
+    <option value="">Seleccione una persona</option>
+    <option value="Mariana Bergter">Mariana Bergter</option>
+    <option value="Daniela Oriana">Daniela Oriana</option>
+    <option value="Maria Ojeda">Maria Ojeda</option>
+  </select>
+</div>
+
         <div className="mb-3">
           <label className="form-label">Fecha:</label>
           <input

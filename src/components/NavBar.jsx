@@ -8,7 +8,7 @@ function OffcanvasExample() {
     <>
     <Navbar expand="lg" className="navbarbg">
       <Container>
-        <Navbar.Brand  className='text-white' href="/">Hoyo 3</Navbar.Brand>
+        <Navbar.Brand  className='text-white' href="/">Hoyo 3 Admin</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

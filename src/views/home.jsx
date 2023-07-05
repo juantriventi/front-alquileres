@@ -6,15 +6,12 @@ import { PanelHome } from "../components/PanelHome";
 function Home () {
 
     return (
-        <>
+        <div className="container-todo-home">
         <NavBar />
         <div className="container-md todo">
-            
-        <PanelHome />
-
-               
+        <PanelHome />     
         </div>
-        </>
+        </div>
     );
 }
 export default Home;

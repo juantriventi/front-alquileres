@@ -5,12 +5,12 @@ import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend, Filler);
 
-export const ChartLine = () => {
+export const ChartCantidad = () => {
   const [chartData, setChartData] = useState({
     labels: [],
     datasets: [
       {
-        label: 'Beneficios',
+        label: 'Reservas',
         data: [],
         tension: .5,
         fill: true,
@@ -35,22 +35,21 @@ export const ChartLine = () => {
       // Obtén un conjunto completo de meses
       const meses = getAllMonths();
 
-      // Crea un objeto para mapear los beneficios por mes
-      const beneficiosPorMes = {};
+      // Crea un objeto para contar las reservas por mes
+      const reservasPorMes = {};
 
       data.forEach((item) => {
         const monthYear = formatDate(item.fechaIngreso);
-        const beneficio = item.pago;
 
-        if (!beneficiosPorMes[monthYear]) {
-          beneficiosPorMes[monthYear] = beneficio;
+        if (!reservasPorMes[monthYear]) {
+          reservasPorMes[monthYear] = 1;
         } else {
-          beneficiosPorMes[monthYear] += beneficio;
+          reservasPorMes[monthYear] += 1;
         }
       });
 
       const labels = meses.map((monthYear) => monthYear);
-      const beneficios = meses.map((monthYear) => beneficiosPorMes[monthYear] || 0);
+      const reservas = meses.map((monthYear) => reservasPorMes[monthYear] || 0);
 
       setChartData((prevData) => ({
         ...prevData,
@@ -58,7 +57,7 @@ export const ChartLine = () => {
         datasets: [
           {
             ...prevData.datasets[0],
-            data: beneficios,
+            data: reservas,
           },
         ],
       }));
