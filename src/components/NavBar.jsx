@@ -1,9 +1,14 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
+import { useAuth0 } from "@auth0/auth0-react";
+import { Login } from './Login';
+import { Logout } from './Logout';
 
 function OffcanvasExample() {
+
+  const { isAuthenticated } = useAuth0();
+
   return (
     <>
     <Navbar expand="lg" className="navbarbg">
@@ -12,14 +17,10 @@ function OffcanvasExample() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
-            <Nav.Link className='text-white' href="/">Inicio</Nav.Link>
-            <Nav.Link className='text-white' href="/reservas">Reservas</Nav.Link>
-            <Nav.Link className='text-white' href="/tareas">Tareas</Nav.Link>
-            <NavDropdown className='text-white' title="Pagos" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Expensas</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2"> Bancos</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Sueldos</NavDropdown.Item>
-            </NavDropdown>
+          {isAuthenticated ? <Nav.Link className='text-white' href="/">Inicio</Nav.Link> : ""}
+          {isAuthenticated ? <Nav.Link className='text-white' href="/reservas">Reservas</Nav.Link>  : ""}
+          {isAuthenticated ? <Nav.Link className='text-white' href="/tareas">Tareas</Nav.Link>  : ""}
+          {isAuthenticated ? <Logout /> : <Login />}
           </Nav>
         </Navbar.Collapse>
       </Container>
